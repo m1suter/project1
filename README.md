@@ -1,6 +1,6 @@
-#CAS2019 Project 1
+# CAS2019 Project 1
 
-##How to start
+## How to start
 1. download Project
 2. install npm
 3. go into root folder of project
