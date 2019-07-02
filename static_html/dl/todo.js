@@ -10,7 +10,7 @@ const parseDate = date => {
         :new Date(parsedDate);
 }
 
-class Todo {
+export class Todo {
     constructor() {
         this.created = new Date();
         this.title = '';
@@ -22,14 +22,14 @@ class Todo {
     }
 
     setId(id) {
-        if(id != null) {
+        if(typeof id != null) {
             this.id = id;
         }
     }
 
     setCreated(created) {
         if(typeof created !== 'undefined') {
-            this.created = created;
+            this.created = parseDate(created);
         }
     }
 
@@ -56,13 +56,13 @@ class Todo {
 
     setDoneDate(doneDate) {
         if(typeof doneDate !== 'undefined') {
-            this.doneDate = doneDate;
+            this.doneDate = parseDate(doneDate);
         }
     }
 
     setDueDate(due) {
         if(typeof due !== 'undefined') {
-            this.due = due;
+            this.due = parseDate(due);
         }
     }
 
@@ -111,4 +111,3 @@ class Todo {
         };
     }
 }
-module.exports = Todo;

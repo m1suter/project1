@@ -4,14 +4,15 @@ class TodoStore {
     }
 
     async getTodos(sortBy = finishDate, showDone = true) {
+        if(showDone) {
+            return await this.db
+            .find({})
+            .sort({[sortBy]:-1})
+            .exec();
+        }
         return await this.db
-            .find({$where: () => {
-                if(showDone) {
-                    return this.done != null;
-                }
-                return true;
-            }})
-            .sort({[sortBy]:1})
+            .find({ $where: function() { return this.done === false} })
+            .sort({[sortBy]:-1})
             .exec();
     }
 

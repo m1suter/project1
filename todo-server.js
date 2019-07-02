@@ -12,7 +12,7 @@ const
 
 app.use(morgan('dev'));
 
-app.use(express.static(__dirname + 'node_modules'));
+app.use(express.static(__dirname + '/node_modules'));
 app.use(express.static(__dirname + '/static_html'));
 
 app.use(bodyParser.json());

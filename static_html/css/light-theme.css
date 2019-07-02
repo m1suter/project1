@@ -1,0 +1,163 @@
+html body {
+    height: 80%;
+    max-width: 80%;
+    margin: 0 auto;
+    --color-background: blue;
+    --color-button: orange;
+    --color-button-border: black;
+    --color-button-active: darkorange;
+    --color-todo: yellow;
+    --color-prio-selected: red;
+    --color-prio-unselected: black;
+    background-color: darkgray;
+}
+
+.todolist-container {
+    padding: 20px 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: var(--color-background);
+}
+
+nav {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px 20px;
+    grid-template-areas: 
+    "add . . theme"
+    "filterDoneDate filterCreateDate filterImportance filterDone";
+}
+
+nav > button:nth-child(1) {
+    grid-area: add;
+}
+
+nav > select {
+    grid-area: theme; 
+}
+
+nav > button:nth-child(3) {
+    grid-area: filterDoneDate;
+}
+
+nav > button:nth-child(4) {
+    grid-area: filterCreateDate;
+}
+
+nav > button:nth-child(5){
+    grid-area: filterImportance;
+}
+
+nav > button:nth-child(6) {
+    grid-area: filterDone;
+}
+
+nav button, select {
+    padding: 5px 10px;
+    text-align: left;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: var(--color-button);
+    border: 1px solid black;
+    border-radius: 3px;
+  }
+
+ .note button {
+    padding: 5px 10px;
+    text-align: left;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: var(--color-button);
+    border: 1px solid var(--color-button-border);
+    border-radius: 3px;
+  }
+
+nav button:active{
+    background-color: var(--color-button-active);
+}
+
+.note {
+    display: grid;
+    background-color: var(--color-todo);
+    margin: 10px 0;
+    padding: 5px 5px 5px 0px;
+    
+    grid-template-rows: auto auto;
+    grid-template-columns: 250px auto 150px 120px;
+    grid-gap: 2px 5px;
+    grid-template-areas:
+        "due title priority edit"
+        "finished content content edit";
+}
+
+.note > div:nth-child(1) {
+    grid-area: due;
+}
+
+.note > div:nth-child(2) {
+    grid-area: title;
+}
+
+.note > div:nth-child(3) {
+    grid-area: priority;
+}
+
+.note > div:nth-child(4) {
+    grid-area: finished;
+}
+
+.note > div:nth-child(5) {
+    grid-area: content;
+}
+
+.note > div:nth-child(6) {
+    grid-area: edit;
+}
+
+.new-todo-container {
+    padding: 20px 20px;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: var(--color-background);
+}
+
+section#todo-form {
+    display: grid;
+    grid-template-columns: 10em auto;
+    grid-gap: 1em;
+    grid-auto-rows: auto;
+}
+
+section#todo-form > textarea {
+    height: 8em;
+}
+
+.priorities {
+    border: none;
+    padding: 0;
+}
+
+.priorities input {
+    display: none;
+}
+
+.priorities label {
+    margin-right: .5em;
+    cursor: pointer;
+    color: var(--color-prio-selected);
+}
+
+.priorities>input:checked ~ label {
+    color: var(--color-prio-unselected);
+}
+
+.spacer {
+    height: 2em;
+}
+
+footer.todo-form-footer {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 5em;
+}

@@ -14,7 +14,8 @@ class TodoController {
     }
 
     async createTodo(req, res) {
-        const newTodo = await Todo.fromDB(await this.todoStore.createTodo(req.body));
+        let todo = Todo.fromJson(req.body);
+        const newTodo = await Todo.fromDB(await this.todoStore.createTodo(todo));
         
         res.json(newTodo);
     }

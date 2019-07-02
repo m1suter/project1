@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dark-theme.css" title="dark-theme"/>
+    <link id="light-theme" rel="alternate stylesheet" href="css/light-theme.css" title="light-theme">
+    <title>Note Pro</title>
+</head>
+<body>
+    <main id="todolist-container" class="todolist-container">
+        <h1>Note Pro</h1>
+        <nav>
+            <button data-new="form.html"">New</button>
+            <select id="theme">
+                <option value="dark-theme">dark-theme</option>
+                <option value="light-theme">light-theme</option>
+            </select>
+            <button data-filter="doneDate">By finish Date</button>
+            <button data-filter="created">By created Date</button>
+            <button data-filter="priority">By Importance</button>
+            <button data-show-finished="showFinished">Show finished</button>
+        </nav>
+        <h2>Notes</h2>
+        <section id="todolist">
+            <script id="todolist_template" type="text/x-handlebars-template">
+                <ul>
+                    {{#if todos.length}}
+                        {{#each todos}}
+                        <li class="note">
+                            <div>{{formatEditDate due}}</div>
+                            <div>{{title}}</div>
+                            <div>{{{formatPriority priority "<i class=\"material-icons\">flash_on</i>"}}}</div>
+                            <div>{{> finished}}</div>
+                            <div>{{description}}</div>
+                            <div>{{> edit}}</div>
+                        </li>
+                        {{/each}}
+                    {{/if}}
+                </ul>
+            </script>
+        </section>
+    </main>
+
+    <script type="text/javascript"  src="./scripts/jquery.min.js" defer></script>
+    <script type="text/javascript" src="./scripts/handlebars-v4.1.2.js" defer></script>
+    <script type="text/javascript" src="./scripts/moment-with-locales.min.js" defer></script>
+    <script type="text/javascript" src="./scripts/handlebars-utils.js"defer></script>
+    <script src="./bootstrapper.js" type="module" defer></script>
+</body>
+</html>
