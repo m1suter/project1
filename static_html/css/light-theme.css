@@ -156,8 +156,20 @@ section#todo-form > textarea {
     height: 2em;
 }
 
-footer.todo-form-footer {
+.todo-form-footer{
     display: grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 5em;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto 200px;
+    grid-gap: 10px 20px;
+    grid-template-areas: 
+    "submit submit"
+    ". cancel";
+}
+
+input[type=submit] {
+    grid-area: submit;
+}
+
+input[type=reset] {
+    grid-area: cancel;
 }
